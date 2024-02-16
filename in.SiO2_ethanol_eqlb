@@ -1,0 +1,86 @@
+units real
+atom_style full
+
+variable N_A  index 6.022140857e+23
+
+units real
+atom_style full
+bond_style harmonic
+angle_style harmonic
+dihedral_style opls
+improper_style cvff
+pair_style lj/cut/coul/long 12 12
+pair_modify mix arithmetic
+special_bonds lj/coul 0.0 0.0 0.5
+kspace_style pppm 1e-4
+neigh_modify every 1 delay 0 check yes
+
+variable temp index 300
+variable nstep index 300000
+read_data data.init
+#_________________________________________________________#
+
+#________SiO2　固定相と熱浴の設定____________#
+group O_bulk type 1
+group O_oh type 2
+group Si type 3
+group H_oh type 4
+group C_eth type 5
+group O_eth type 6
+group H_eth type 7 8 9 10
+
+
+group SiO2 union O_bulk O_oh  Si H_oh 
+group ETHANOL union C_eth O_eth H_eth
+
+
+region fixed_SiO2 plane 0 0 $(bound(SiO2,zmin)+1) 0 0 -1
+group deleteme region fixed_SiO2
+group fixed_SiO2 intersect deleteme O_oh
+group deleteme delete
+region fixed_SiO2 delete
+# make sure that the correct number of Oxygens is in the fixed layer
+if "$(count(fixed_SiO2)) != 280" then "print 'Error: Wrong number of atoms in fixed layer'" "quit 1"
+# set heat bath layer, consisting of one O and one Si layer
+region hbath_Si plane 0 0 $(bound(SiO2,zmin)+10) 0 0 -1
+group  deleteme region hbath_Si
+group  hbath_Si intersect deleteme Si
+region hbath_Si delete
+group deleteme delete
+if "$(count(hbath_Si)) != 1120" then "print 'Error: Wrong number of atoms in Si heat bath'" "quit 1"
+region hbath_O  plane 0 0 $(bound(SiO2,zmin)+10) 0 0 -1
+group  deleteme region hbath_O
+group  deleteme2 intersect deleteme O_bulk
+group  hbath_O subtract deleteme2 fixed_SiO2
+group deleteme  delete
+group deleteme2 delete
+region hbath_O delete
+if "$(count(hbath_O)) != 2240" then "print 'Error: Wrong number of atoms in O heat bath'" "quit 1"
+group hbath_SiO2 union hbath_Si hbath_O
+group hbath_Si delete
+group hbath_O delete
+
+#___________________________実行________
+
+group integ subtract all fixed_SiO2
+fix integ integ nve
+compute comliquid ETHANOL temp
+compute comSiO2 SiO2 temp
+dump methDump all atom 100 dump.lammpstrj
+
+#compute Dens_liquid liquid chunk/atom bin/1d z lower 0.01 units reduced
+compute Dens_liquid ETHANOL chunk/atom bin/2d z lower 3 y lower 3
+
+fix 1 ETHANOL ave/chunk 1 ${nstep} ${nstep} Dens_liquid density/mass ave running file liquid_density.dat
+
+timestep 1
+#variable  GamNsurf equal lz*(pzz-0.5*(pxx+pyy))*101325/1e10*1e3
+
+#fix ave/G all ave/time  100 5 1000 v_GamNsurf file surface_tension.dat
+
+thermo_style    custom step time temp press vol density c_comliquid c_comSiO2
+thermo 100
+
+run ${nstep}
+
+write_data data.last
