@@ -1,0 +1,19 @@
+
+
+# ----------------- Init Section -----------------
+
+include "water_glycerol.in.init"
+
+
+# ----------------- Atom Definition Section -----------------
+
+read_data "water_glycerol.data"
+
+# ----------------- Settings Section -----------------
+
+include "water_glycerol.in.settings"
+
+
+# ----------------- Charges Section -----------------
+
+include "water_glycerol.in.charges"

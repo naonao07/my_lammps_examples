@@ -1,0 +1,103 @@
+#glycerol.setting
+
+mass 1     12.011
+mass 2     12.011
+mass 3     12.011
+mass 4     15.999
+mass 5     15.999
+mass 6     15.999
+mass 7      1.008
+mass 8      1.008
+mass 9      1.008
+mass 10      1.008
+mass 11      1.008
+mass 12      1.008
+mass 13      1.008
+mass 14      1.008
+
+pair_coeff 1 1      0.066  3.5000000
+pair_coeff 2 2      0.066  3.5000000
+pair_coeff 3 3      0.066  3.5000000
+pair_coeff 4 4      0.170  3.1200000
+pair_coeff 5 5      0.170  3.1200000
+pair_coeff 6 6      0.170  3.1200000
+pair_coeff 7 7      0.030  2.5000000
+pair_coeff 8 8      0.030  2.5000000
+pair_coeff 9 9      0.030  2.5000000
+pair_coeff 10 10      0.030  2.5000000
+pair_coeff 11 11      0.030  2.5000000
+pair_coeff 12 12      0.000  0.0000000
+pair_coeff 13 13      0.000  0.0000000
+pair_coeff 14 14      0.000  0.0000000
+
+bond_coeff 1   268.0000     1.5290
+bond_coeff 2   268.0000     1.5290
+bond_coeff 3   320.0000     1.4100
+bond_coeff 4   320.0000     1.4100
+bond_coeff 5   320.0000     1.4100
+bond_coeff 6   340.0000     1.0900
+bond_coeff 7   340.0000     1.0900
+bond_coeff 8   340.0000     1.0900
+bond_coeff 9   340.0000     1.0900
+bond_coeff 10   340.0000     1.0900
+bond_coeff 11   553.0000     0.9450
+bond_coeff 12   553.0000     0.9450
+bond_coeff 13   553.0000     0.9450
+
+angle_coeff 1     58.350    112.700
+angle_coeff 2     50.000    109.500
+angle_coeff 3     50.000    109.500
+angle_coeff 4     50.000    109.500
+angle_coeff 5     37.500    110.700
+angle_coeff 6     37.500    110.700
+angle_coeff 7     37.500    110.700
+angle_coeff 8     37.500    110.700
+angle_coeff 9     37.500    110.700
+angle_coeff 10     55.000    108.500
+angle_coeff 11     55.000    108.500
+angle_coeff 12     55.000    108.500
+angle_coeff 13     35.000    109.500
+angle_coeff 14     35.000    109.500
+angle_coeff 15     35.000    109.500
+angle_coeff 16     35.000    109.500
+angle_coeff 17     50.000    109.500
+angle_coeff 18     35.000    109.500
+angle_coeff 19     37.500    110.700
+angle_coeff 20     33.000    107.800
+angle_coeff 21     33.000    107.800
+
+dihedral_coeff 1     -1.552      0.000      0.000      0.000
+dihedral_coeff 2     -1.552      0.000      0.000      0.000
+dihedral_coeff 3     -0.356     -0.174      0.492      0.000
+dihedral_coeff 4     -0.356     -0.174      0.492      0.000
+dihedral_coeff 5     -0.356     -0.174      0.492      0.000
+dihedral_coeff 6      0.000      0.000      0.300      0.000
+dihedral_coeff 7      0.000      0.000      0.300      0.000
+dihedral_coeff 8      0.000      0.000      0.300      0.000
+dihedral_coeff 9      0.000      0.000      0.352      0.000
+dihedral_coeff 10      0.000      0.000      0.468      0.000
+dihedral_coeff 11      0.000      0.000      0.300      0.000
+dihedral_coeff 12     -0.356     -0.174      0.492      0.000
+dihedral_coeff 13      0.000      0.000      0.468      0.000
+dihedral_coeff 14      0.000      0.000      0.352      0.000
+dihedral_coeff 15      0.000      0.000      0.468      0.000
+dihedral_coeff 16      0.000      0.000      0.352      0.000
+dihedral_coeff 17      0.000      0.000      0.352      0.000
+dihedral_coeff 18      0.000      0.000      0.300      0.000
+dihedral_coeff 19      0.000      0.000      0.300      0.000
+dihedral_coeff 20      0.000      0.000      0.300      0.000
+dihedral_coeff 21      9.508      0.000      0.000      0.000
+dihedral_coeff 22      0.000      0.000      0.468      0.000
+dihedral_coeff 23      0.000      0.000      0.468      0.000
+dihedral_coeff 24      9.508      0.000      0.000      0.000
+dihedral_coeff 25      0.000      0.000      0.300      0.000
+dihedral_coeff 26      0.000      0.000      0.352      0.000
+dihedral_coeff 27      0.000      0.000      0.468      0.000
+
+improper_coeff 1      0.000      -1       2
+improper_coeff 2      0.000      -1       2
+improper_coeff 3      0.000      -1       2
+improper_coeff 4      0.000      -1       2
+improper_coeff 5      0.000      -1       2
+improper_coeff 6      0.000      -1       2
+

@@ -1,0 +1,35 @@
+
+
+# ----------------- Init Section -----------------
+
+include "water_12HD.in.init"
+
+
+# ----------------- Atom Definition Section -----------------
+
+read_data "water_12HD.data"
+
+# ----------------- Settings Section -----------------
+
+include "water_12HD.in.settings"
+
+
+# ----------------- Charges Section -----------------
+
+include "water_12HD.in.charges"
+minimize 1.0e-4 1.0e-6 100 1000
+variable  GamNsurf equal lz*(pzz-0.5*(pxx+pyy))*101325/1e10*1e3
+
+fix 1 all ave/time  1 1000 1000 v_GamNsurf file surface_tension.dat
+
+thermo 100
+thermo_style custom step temp pe etotal press v_GamNsurf 
+timestep 1
+dump myDump all atom 10000 dump.lammpstrj
+
+fix 2 all nvt temp 300.0 300.0 100.0 
+
+run 10000000
+
+
+write_data data.last

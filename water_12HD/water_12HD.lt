@@ -1,0 +1,16 @@
+import "water.lt"
+import "12HD.lt"
+
+# The lipids and water must be listed instantiated in the same order
+# they appear in the packmol_files/mix_lipids+water.inp file:
+
+lipids = new 12HD[300]
+
+waters = new Water[8000]
+
+
+write_once("Data Boundary") {
+  0 50.0 xlo xhi
+  0 50.0 ylo yhi
+  -50 100.0 zlo zhi
+}

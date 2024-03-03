@@ -1,0 +1,39 @@
+# Use the OPLS-AA force field for all species.
+import /home/naoki/moltemplate/moltemplate/force_fields/oplsaa.lt
+
+
+
+Glycerol inherits OPLSAA {
+    write("Data Atoms"){
+        $atom:C00	$mol:GLY	@atom:99	0	1	1	0
+        $atom:O01	$mol:GLY	@atom:96	0	-0.427	1	0
+        $atom:C02	$mol:GLY	@atom:100	0	1.53	1	-1.432
+        $atom:O03	$mol:GLY	@atom:96	0	0.924	-0.109	-2.117
+        $atom:C04	$mol:GLY	@atom:99	0	1.202	2.299	-2.175
+        $atom:O05	$mol:GLY	@atom:96	0	1.733	2.22	-3.505
+        $atom:H06	$mol:GLY	@atom:85	0	1.324	0.098	0.528
+        $atom:H07	$mol:GLY	@atom:85	0	1.35	1.876	0.558
+        $atom:H08	$mol:GLY	@atom:97	0	-0.673	0.205	-0.531
+        $atom:H09	$mol:GLY	@atom:85	0	2.61	0.835	-1.432
+        $atom:H0A	$mol:GLY	@atom:97	0	0.684	0.212	-3.011
+        $atom:H0B	$mol:GLY	@atom:85	0	1.641	3.174	-1.678
+        $atom:H0C	$mol:GLY	@atom:85	0	0.127	2.441	-2.262
+        $atom:H0D	$mol:GLY	@atom:97	0	2.702	2.118	-3.439
+    }
+
+    write("Data Bond List") {
+        $bond:CO01	$atom:C00	$atom:O01
+        $bond:CC02	$atom:C00	$atom:C02
+        $bond:CO03	$atom:C02	$atom:O03
+        $bond:CC04	$atom:C02	$atom:C04
+        $bond:CO05	$atom:C04	$atom:O05
+        $bond:CH06	$atom:C00	$atom:H06
+        $bond:CH07	$atom:C00	$atom:H07
+        $bond:OH08	$atom:O01	$atom:H08
+        $bond:CO09	$atom:C02	$atom:H09
+        $bond:OH10	$atom:O03	$atom:H0A
+        $bond:CH11	$atom:C04	$atom:H0B
+        $bond:CH12	$atom:C04	$atom:H0C
+        $bond:OH13	$atom:O05	$atom:H0D
+    }
+}

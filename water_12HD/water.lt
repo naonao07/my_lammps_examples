@@ -1,0 +1,14 @@
+# Use the OPLS-AA force field for all species.
+import /home/naoki/moltemplate/moltemplate/force_fields/oplsaa.lt
+
+Water inherits OPLSAA {
+  write("Data Atoms"){
+    $atom:O  $mol:Water @atom:76 0.  5.901   7.384   1.103
+    $atom:H1 $mol:Water @atom:77 0.  6.047   8.238   0.581
+    $atom:H2 $mol:Water @atom:77 0. 6.188   7.533   2.057
+  }
+  write("Data Bond List"){
+    $bond:OH1 $atom:O $atom:H1
+    $bond:OH2 $atom:O $atom:H2
+  }
+}

@@ -1,0 +1,16 @@
+import "water.lt"
+import "glycerol.lt"
+
+# The lipids and water must be listed instantiated in the same order
+# they appear in the packmol_files/mix_lipids+water.inp file:
+
+GLYs = new Glycerol[500]
+
+waters = new Water[5000]
+
+
+write_once("Data Boundary") {
+  0 50.0 xlo xhi
+  0 50.0 ylo yhi
+  0 50.0 zlo zhi
+}

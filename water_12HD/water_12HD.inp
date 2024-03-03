@@ -1,0 +1,13 @@
+tolerance 2.0
+filetype pdb
+output out.pdb
+ 
+structure 12HD.pdb
+  number 300
+  inside box 0 0 -20 50 50 70
+end structure
+
+structure water.pdb
+  number 8000
+ inside box 0 0 -50 50 50 100
+end structure
